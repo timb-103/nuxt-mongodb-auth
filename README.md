@@ -2,6 +2,8 @@
 
 A simple Nuxt 3 user authentication system using mongoDB to store users & sessions.
 
+[Basic Example](https://github.com/timb-103/nuxt-mongodb-auth-example)
+
 ## Install
 
 Install the layer:
