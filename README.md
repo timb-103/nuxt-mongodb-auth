@@ -1,4 +1,4 @@
-# Nuxt 3 MongoDB Auth Layer
+# Nuxt 3 MongoDB Auth
 
 A simple Nuxt 3 user authentication system using mongoDB to store users & sessions.
 
