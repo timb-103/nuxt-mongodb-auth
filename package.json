@@ -1,0 +1,32 @@
+{
+  "name": "nuxt-mongodb-auth",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./nuxt.config.ts",
+  "scripts": {
+    "dev": "nuxt dev"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "nuxt-mongodb": "1.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "18.16.19",
+    "nuxt": "3.6.5"
+  },
+  "description": "Nuxt 3 user authentication using mongoDB",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timb-103/nuxt-mongodb-auth.git"
+  },
+  "keywords": [
+    "nuxt",
+    "mongodb"
+  ],
+  "author": "Tim B",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timb-103/nuxt-mongodb-auth/issues"
+  },
+  "homepage": "https://github.com/timb-103/nuxt-mongodb-auth#readme"
+}
