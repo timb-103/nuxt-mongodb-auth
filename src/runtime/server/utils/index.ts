@@ -1,1 +1,1 @@
-export { requiresAuthSession } from './session'
+export { requiresAuthSession, mongo } from './session'

@@ -1,4 +1,4 @@
-import { defineEventHandler, createError } from 'h3'
+import { defineEventHandler, createError, readBody } from 'h3'
 import { generateSessionId, createSession } from '../utils/session'
 import { mongo } from '#nuxt-mongodb'
 

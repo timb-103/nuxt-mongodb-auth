@@ -1,4 +1,4 @@
-export const authRegister = async (email: string, password: string) => {
+export const useAuthRegister = async (email: string, password: string) => {
   await $fetch('/api/mongodb-auth/register', {
     method: 'POST',
     body: {

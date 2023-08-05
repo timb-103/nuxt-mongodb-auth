@@ -6,17 +6,17 @@ A simple Nuxt 3 user authentication system using mongoDB to store users & sessio
 
 ## Install
 
-Install the layer:
+Install the module:
 
 ```sh
 npm i -D nuxt-mongodb-auth
 ```
 
-Add the layer in the `extends` array in `nuxt.config.ts`:
+Add `nuxt-mongodb-auth` to the `modules` array in `nuxt.config.ts`:
 
 ```js
 export default defineNuxtConfig({
-  extends: ['nuxt-mongodb-auth'],
+  modules: ['nuxt-mongodb-auth'],
 })
 ```
 
@@ -42,7 +42,7 @@ When calling your protected API routes, add this at the top of your file:
 
 ```js
 export default defineEventHandler(async (event) => {
-  const user = requiresAuthSession(event)
+  const user = await requiresAuthSession(event)
 })
 ```
 
@@ -53,6 +53,8 @@ If the user has no authorized session, it will throw an error and return before 
 When you start your project, mongo will connect and you can use it anywhere, eg:
 
 ```js
+import { mongo } from '#nuxt-mongodb-auth'
+
 const db = mongo.db()
 const response = await db.collection('YOUR_COLLECTION').find()
 ```

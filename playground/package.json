@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "nuxt": "latest"
+  },
+  "dependencies": {
+    "nuxt-simple-css": "1.0.3"
   }
 }

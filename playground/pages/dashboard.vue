@@ -1,13 +1,22 @@
 <template>
-  <h1>Dashboard</h1>
-  <p v-if="loading">loading...</p>
-  <pre v-else>User: {{ user }}</pre>
-  <a href="" @click.prevent="authLogout()">Logout</a>
+  <main>
+    <!-- Title -->
+    <h1>Dashboard</h1>
+
+    <!-- Loading Text -->
+    <p v-if="loading">loading...</p>
+
+    <!-- User Data -->
+    <pre v-else><code>User: {{ user }}</code></pre>
+
+    <!-- Logout Button -->
+    <button @click="useAuthLogout()">Logout</button>
+  </main>
 </template>
 
 <script setup lang="ts">
-import { definePageMeta, ref, onMounted } from '#imports'
-import { User } from '@/types/user'
+import { definePageMeta, ref, onMounted, useAuthLogout, useAuthUser } from '#imports'
+import { User } from '../../src/user'
 
 definePageMeta({ middleware: 'auth' })
 
@@ -17,7 +26,7 @@ const loading = ref(true)
 async function getUser() {
   loading.value = true
   try {
-    user.value = await authUser()
+    user.value = await useAuthUser()
   } catch (error) {
     console.log('Error getting user')
   }

@@ -10,10 +10,11 @@ import { getSessionUser } from '../utils/session'
  */
 
 export default defineEventHandler(async (event) => {
-  console.log('auth middleware...')
-  const cookies = parseCookies(event)
-  const user = await getSessionUser(cookies?.sessionId)
-  if (user) {
-    event.context.user = user
+  if (event.node.req.url?.includes('/api/')) {
+    const cookies = parseCookies(event)
+    const user = await getSessionUser(cookies?.sessionId)
+    if (user) {
+      event.context.user = user
+    }
   }
 })

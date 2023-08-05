@@ -1,6 +1,6 @@
 import { useCookie, navigateTo } from '#imports'
 
-export const authLogout = async () => {
+export const useAuthLogout = async () => {
   const sessionId = useCookie('sessionId')
   try {
     $fetch('/api/mongodb-auth/logout', {

@@ -2,6 +2,8 @@ import { H3Event, createError, setCookie } from 'h3'
 import type { User } from '../../../user'
 import { mongo } from '#nuxt-mongodb'
 
+export { mongo }
+
 export async function createSession(event: H3Event, userId: string) {
   try {
     const db = mongo.db()

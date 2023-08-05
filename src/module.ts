@@ -6,6 +6,7 @@ import {
   addServerHandler,
   addTemplate,
   installModule,
+  addImportsDir,
 } from '@nuxt/kit'
 import { defu } from 'defu'
 
@@ -47,33 +48,20 @@ export default defineNuxtModule<ModuleOptions>({
 
     // add exports so we can use import {} from '#mongodb'
     addTemplate({
-      filename: 'types/nuxt-mongodb-auth.d.ts',
+      filename: 'nuxt-mongodb-auth.d.ts',
       getContents: () =>
         [
           "declare module '#nuxt-mongodb-auth' {",
-          `  const mongo: typeof import('${resolve(
+          `  const requiresAuthSession: typeof import('${resolve(
             './runtime/server/utils'
           )}').requiresAuthSession`,
+          `  const mongo: typeof import('${resolve('./runtime/server/utils')}').mongo`,
           '}',
         ].join('\n'),
     })
 
     // add auth composables
-    addImports({
-      name: 'useAuthLogin',
-      as: 'useAuthLogin',
-      from: resolve('./runtime/composables/login'),
-    })
-    addImports({
-      name: 'useAuthRegister',
-      as: 'useAuthRegister',
-      from: resolve('./runtime/composables/register'),
-    })
-    addImports({
-      name: 'useAuthLogout',
-      as: 'useAuthLogout',
-      from: resolve('./runtime/composables/logout'),
-    })
+    addImportsDir(resolve('./runtime/composables'))
 
     // add auth middleware
     addPlugin(resolve('./runtime/middleware-plugin'))

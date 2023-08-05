@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb'
-import { defineEventHandler, createError } from 'h3'
+import { defineEventHandler, createError, readBody } from 'h3'
 import { createSession } from '../utils/session'
 import { mongo } from '#nuxt-mongodb'
 
@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return createError({
         statusCode: 400,
-        statusMessage: 'Error logging in.',
+        statusMessage: 'Error logging in (wrong user/password).',
       })
     }
 

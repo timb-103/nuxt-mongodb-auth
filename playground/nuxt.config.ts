@@ -1,4 +1,4 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ['../src/module'],
+  modules: ['../src/module', 'nuxt-simple-css'],
 })
