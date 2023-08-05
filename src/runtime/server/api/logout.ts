@@ -1,3 +1,6 @@
+import { defineEventHandler, createError, readBody } from 'h3'
+import { mongo } from '#nuxt-mongodb'
+
 export default defineEventHandler(async (event) => {
   try {
     const db = mongo.db()

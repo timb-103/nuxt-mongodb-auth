@@ -6,6 +6,7 @@
 </template>
 
 <script setup lang="ts">
+import { definePageMeta, ref, onMounted } from '#imports'
 import { User } from '@/types/user'
 
 definePageMeta({ middleware: 'auth' })

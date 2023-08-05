@@ -1,6 +1,10 @@
+import { ObjectId } from 'mongodb'
+import { defineEventHandler, createError } from 'h3'
+import { createSession } from '../utils/session'
+import { mongo } from '#nuxt-mongodb'
+
 //@ts-ignore
 import bcrypt from 'bcrypt'
-import { ObjectId } from 'mongodb'
 
 export default defineEventHandler(async (event) => {
   try {

@@ -1,25 +1,27 @@
 <template>
-  <h1>Login</h1>
-  <form @submit.prevent="login()">
+  <h1>Register</h1>
+  <form @submit.prevent="register()">
     <input type="email" v-model="email" placeholder="email" />
-    <input type="password" v-model="password" placeholder="password" />
+    <input type="password" v-model="password" placeholder="password (min 6 chars)" />
     <p v-if="errors">{{ errors }}</p>
-    <button type="submit">Login</button>
+    <button type="submit">Register</button>
   </form>
-  <NuxtLink to="/register">Register</NuxtLink>
+  <NuxtLink to="/login">Login</NuxtLink>
 </template>
 
 <script setup lang="ts">
+import { definePageMeta, ref } from '#imports';
+
 definePageMeta({ middleware: 'not-auth' })
 
 const email = ref('')
 const password = ref('')
 const errors = ref('')
 
-async function login() {
+async function register() {
   errors.value = ''
   try {
-    await authLogin(email.value, password.value)
+    await authRegister(email.value, password.value)
     navigateTo('/dashboard')
   } catch (error: any) {
     errors.value = error.statusMessage

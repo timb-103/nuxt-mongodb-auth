@@ -1,7 +1,8 @@
-import { User } from 'types/user'
+import { User } from '../../user'
+import { useCookie, navigateTo } from '#imports'
 
 export const authLogin = async (email: string, password: string) => {
-  await $fetch('/api/auth/login', {
+  await $fetch('/api/mongodb-auth/login', {
     method: 'POST',
     body: {
       email: email,
@@ -11,7 +12,7 @@ export const authLogin = async (email: string, password: string) => {
 }
 
 export const authRegister = async (email: string, password: string) => {
-  await $fetch('/api/auth/register', {
+  await $fetch('/api/mongodb-auth/register', {
     method: 'POST',
     body: {
       email: email,
@@ -23,7 +24,7 @@ export const authRegister = async (email: string, password: string) => {
 
 export const authUser = async () => {
   try {
-    const user = await $fetch<User>('/api/auth/user', {
+    const user = await $fetch<User>('/api/mongodb-auth/user', {
       method: 'POST',
     })
     return user
@@ -36,7 +37,7 @@ export const authUser = async () => {
 export const authLogout = async () => {
   const sessionId = useCookie('sessionId')
   try {
-    $fetch('/api/auth/logout', {
+    $fetch('/api/mongodb-auth/logout', {
       method: 'POST',
       body: {
         sessionId: sessionId.value,

@@ -1,3 +1,6 @@
+import { defineEventHandler, parseCookies } from 'h3'
+import { getSessionUser } from '../utils/session'
+
 /**
  * On every request to the server it will take the cookie, check if it has
  * an active session and add the user to the context object.
@@ -7,6 +10,7 @@
  */
 
 export default defineEventHandler(async (event) => {
+  console.log('auth middleware...')
   const cookies = parseCookies(event)
   const user = await getSessionUser(cookies?.sessionId)
   if (user) {

@@ -1,32 +1,43 @@
 {
   "name": "nuxt-mongodb-auth",
-  "version": "1.0.1",
-  "type": "module",
-  "main": "./nuxt.config.ts",
-  "scripts": {
-    "dev": "nuxt dev"
-  },
-  "dependencies": {
-    "bcrypt": "^5.1.0",
-    "nuxt-mongodb": "1.0.3"
-  },
-  "devDependencies": {
-    "@types/node": "18.16.19",
-    "nuxt": "3.6.5"
-  },
-  "description": "Nuxt 3 user authentication using mongoDB",
+  "version": "1.0.0",
+  "description": "Nuxt user authentication using mongoDB.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/timb-103/nuxt-mongodb-auth.git"
   },
-  "keywords": [
-    "nuxt",
-    "mongodb"
-  ],
-  "author": "Tim B",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/timb-103/nuxt-mongodb-auth/issues"
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
   },
-  "homepage": "https://github.com/timb-103/nuxt-mongodb-auth#readme"
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "release": "npm run prepack && changelogen --release && npm publish && git push --follow-tags"
+  },
+  "dependencies": {
+    "@nuxt/kit": "3.6.5",
+    "bcrypt": "5.1.0",
+    "defu": "6.1.2",
+    "nuxt-mongodb": "^1.0.10"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "0.4.0",
+    "@nuxt/schema": "3.6.5",
+    "@types/node": "18.17.0",
+    "changelogen": "0.5.4",
+    "nuxt": "3.6.5"
+  }
 }

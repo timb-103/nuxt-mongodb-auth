@@ -1,3 +1,7 @@
+import { defineEventHandler, createError } from 'h3'
+import { generateSessionId, createSession } from '../utils/session'
+import { mongo } from '#nuxt-mongodb'
+
 //@ts-ignore
 import bcrypt from 'bcrypt'
 
@@ -15,7 +19,11 @@ export default defineEventHandler(async (event) => {
 
   try {
     // check if the email already exists
-    if (await db.collection('Users').findOne({ email: { $regex: new RegExp(email.replace(/\s/g, ''), 'i') } })) {
+    if (
+      await db
+        .collection('Users')
+        .findOne({ email: { $regex: new RegExp(email.replace(/\s/g, ''), 'i') } })
+    ) {
       return createError({
         statusCode: 400,
         statusMessage: 'Email exists. Please try again.',
