@@ -1,6 +1,5 @@
-import { requiresAuthSession } from '#nuxt-mongodb-auth'
+import { requiresAuthSession, mongo } from '#nuxt-mongodb-auth'
 import { defineEventHandler, createError } from 'h3'
-import { mongo } from '#nuxt-mongodb-auth'
 
 export default defineEventHandler(async (event) => {
   const user = await requiresAuthSession(event)

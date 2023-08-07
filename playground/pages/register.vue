@@ -4,13 +4,15 @@
     <h1>Register</h1>
 
     <!-- Register Form -->
-    <form @submit.prevent="register()">
+    <form @submit.prevent="register()" class="notice">
       <!-- Email & Password Inputs -->
       <div>
-        <input type="email" v-model="email" placeholder="email" />
+        <label>Email</label>
+        <input type="email" v-model="email" placeholder="Enter your email" />
       </div>
       <div>
-        <input type="password" v-model="password" placeholder="password (min 6 chars)" />
+        <label>Password</label>
+        <input type="password" v-model="password" placeholder="Enter your password" />
       </div>
 
       <!-- Errors -->

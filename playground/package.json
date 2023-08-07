@@ -11,6 +11,6 @@
     "nuxt": "latest"
   },
   "dependencies": {
-    "nuxt-simple-css": "1.0.3"
+    "nuxt-simple-css": "^1.0.3"
   }
 }

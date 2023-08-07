@@ -1,7 +1,6 @@
 import {
   defineNuxtModule,
   createResolver,
-  addImports,
   addPlugin,
   addServerHandler,
   addTemplate,
@@ -22,12 +21,6 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {},
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
-
-    // add options to runtime config
-    // nuxt.options.runtimeConfig.nuxtMongodbAuth = defu(
-    //   nuxt.options.runtimeConfig.nuxtMongodbAuth,
-    //   options
-    // )
 
     // add nuxt-mongodb module
     await installModule('nuxt-mongodb')

@@ -1,4 +1,6 @@
 import { defineEventHandler, createError, readBody } from 'h3'
+
+// @ts-ignore TODO: fix nuxt-mongodb exports?
 import { mongo } from '#nuxt-mongodb'
 
 export default defineEventHandler(async (event) => {

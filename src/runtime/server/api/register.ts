@@ -1,5 +1,7 @@
 import { defineEventHandler, createError, readBody } from 'h3'
 import { generateSessionId, createSession } from '../utils/session'
+
+// @ts-ignore TODO: fix nuxt-mongodb exports?
 import { mongo } from '#nuxt-mongodb'
 
 //@ts-ignore

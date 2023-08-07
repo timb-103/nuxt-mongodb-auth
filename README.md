@@ -41,6 +41,8 @@ To handle the user auth flow, you can use these simple composables in any of you
 When calling your protected API routes, add this at the top of your file:
 
 ```js
+import { requiresAuthSession } from '#nuxt-mongodb-auth'
+
 export default defineEventHandler(async (event) => {
   const user = await requiresAuthSession(event)
 })
@@ -50,7 +52,7 @@ If the user has no authorized session, it will throw an error and return before 
 
 ## MongoDB Connection
 
-When you start your project, mongo will connect and you can use it anywhere, eg:
+You can also access the same mongo connection from your server routes:
 
 ```js
 import { mongo } from '#nuxt-mongodb-auth'

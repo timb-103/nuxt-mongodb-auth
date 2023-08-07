@@ -4,13 +4,15 @@
     <h1>Login</h1>
 
     <!-- Login Form -->
-    <form @submit.prevent="login()">
+    <form @submit.prevent="login()" class="notice">
       <!-- Email & Password Inputs-->
       <div>
-        <input type="email" v-model="email" placeholder="email" />
+        <label>Email</label>
+        <input type="email" v-model="email" placeholder="Enter your email" />
       </div>
       <div>
-        <input type="password" v-model="password" placeholder="password" />
+        <label>Password</label>
+        <input type="password" v-model="password" placeholder="Enter a password" />
       </div>
 
       <!-- Errors -->
@@ -28,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { definePageMeta, ref, navigateTo, useAuthLogin, onMounted } from '#imports'
+import { definePageMeta, ref, navigateTo, useAuthLogin } from '#imports'
 
 definePageMeta({ middleware: 'not-auth' })
 
@@ -48,6 +50,4 @@ async function login() {
   }
   loading.value = false
 }
-
-onMounted(() => $fetch('/api/user/get'))
 </script>

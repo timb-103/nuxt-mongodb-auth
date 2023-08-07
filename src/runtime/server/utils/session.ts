@@ -1,8 +1,8 @@
 import { H3Event, createError, setCookie } from 'h3'
 import type { User } from '../../../user'
-import { mongo } from '#nuxt-mongodb'
 
-export { mongo }
+// @ts-ignore TODO: fix nuxt-mongodb exports?
+import { mongo } from '#nuxt-mongodb'
 
 export async function createSession(event: H3Event, userId: string) {
   try {
