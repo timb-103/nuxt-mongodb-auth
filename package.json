@@ -1,6 +1,6 @@
 {
   "name": "nuxt-mongodb-auth",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Nuxt user authentication using mongoDB.",
   "repository": {
     "type": "git",
