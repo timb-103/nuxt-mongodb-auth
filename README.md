@@ -31,10 +31,10 @@ MONGO_DB=
 
 To handle the user auth flow, you can use these simple composables in any of your pages:
 
-- `authRegister()`
-- `authLogin()`
-- `authLogout()`
-- `authUser()`
+- `useAuthRegister()`
+- `useAuthLogin()`
+- `useAuthLogout()`
+- `useAuthUser()`
 
 ## Server side authentication
 
